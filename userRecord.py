@@ -17,10 +17,10 @@ class userHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
         #interact with db
-        # /favorite?id=<username> fetch all favorites of user
-        # /history?id=<username> fetch all history of user
-        # /favorite?id=<username>&id=<id> add id to user's favorites
-        # /history?id=<username>&id=<id> add id to user's history
+        # /favorite?username=<username> fetch all favorites of user
+        # /history?username=<username> fetch all history of user
+        # /favorite?username=<username>&id=<id> add id to user's favorites
+        # /history?username=<username>&id=<id> add id to user's history
         # /reset reset database
 
         action = self.pathParcing(self.path)
