@@ -22,13 +22,18 @@ class Action():
                 self.add_fav(self.usr,self.tarID)
             else:
                 return self.fetch_fav(self.usr)
-
+        elif self.type == 'reset':
+            self.reset()
         else:
             raise
         self.conn.commit()
         self.conn.close()
 
-
+    def reset(self):
+        reset_sql_fav = ''' DELETE FROM usersFav'''
+        reset_sql_his = '''DELETE FROM usershis;'''
+        self.c.execute(reset_sql_fav)
+        self.c.execute(reset_sql_his)
 
     def add_fav(self,usr,fav):
         add_fav_sql = '''INSERT INTO usersFav ('usr', 'fav') VALUES  ('{0}','{1}')'''.format(usr,fav)

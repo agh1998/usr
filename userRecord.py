@@ -28,6 +28,8 @@ class userHandler(BaseHTTPRequestHandler):
         return
 
     def pathParcing(self,path):
+        if path == '/reset':
+            return ['reset',None,None]
         args = []
         type, paras = path[1:].split('?')
         args.append(type)
