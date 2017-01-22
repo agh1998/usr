@@ -3,6 +3,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import http.client
 from user import Action
+import json
 
 
 # HTTPRequestHandler class
@@ -27,7 +28,7 @@ class userHandler(BaseHTTPRequestHandler):
         result = Action(action).act()
 
         # Send message back to client
-        message = str(result)
+        message = json.dumps(result)
         # Write content as utf-8 data
         self.wfile.write(bytes(message, "utf8"))
         return
