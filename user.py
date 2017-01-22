@@ -31,7 +31,7 @@ class Action():
 
 
     def add_fav(self,usr,fav):
-        add_fav_sql = '''INSERT INTO usersFav ('usr', 'kfav') VALUES  ('{0}','{1}')'''.format(usr,fav)
+        add_fav_sql = '''INSERT INTO usersFav ('usr', 'fav') VALUES  ('{0}','{1}')'''.format(usr,fav)
         self.c.execute(add_fav_sql)
 
     def add_his(self,usr,his):
